@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit() {
-  }
+    if (localStorage.getItem("token")== null) {
+    
+      this.router.navigate(['/login']);
+    }
 
+  }
+  signOut(){
+    this.router.navigate(['/login'])
+  }
 }

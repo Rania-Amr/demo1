@@ -9,6 +9,7 @@ import { HrComponent } from './component/hr/hr.component';
 import { EmployeeComponent } from './component/employee/employee.component';
 import { UserComponent } from './component/user/user.component';
 
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { UserComponent } from './component/user/user.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,  ReactiveFormsModule
+    AppRoutingModule,  ReactiveFormsModule,HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
