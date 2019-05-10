@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="form-group" style="width: 500px; height: 300px;">
+      
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <p style="color:red;">{{msg}}</p>
+          <div>
+
+              <label for="exampleInputEmail1">Email address</label>
+              <br>
+
+              <input type="text" formControlName="email" class="form-control">
+              <br>
+              <label for="exampleInputPassword1">Password</label>
+              <br>
+
+              <input type="password" class="form-control" placeholder="Password" formControlName="password">
+              <br>
+              <input type="radio" value='hr' formControlName="access" >hr
+              <input type="radio" value='user' formControlName="access">user
+              <input type="radio" value='employee' formControlName="access">employee
+              <br>
+              <br>
+
+              <button type="submit" class="btn btn-primary">Login</button>
+          </div>
+
+      </form>
+
+  </div>
+
+</div>
