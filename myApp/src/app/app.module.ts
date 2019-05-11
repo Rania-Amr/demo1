@@ -9,7 +9,10 @@ import { HrComponent } from './component/hr/hr.component';
 import { EmployeeComponent } from './component/employee/employee.component';
 import { UserComponent } from './component/user/user.component';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { UserService } from './service/user.service';
+import { TokenStorage } from './token.storage';
+import { Interceptor } from './core/Interceptor';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,11 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,  ReactiveFormsModule,HttpClientModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: Interceptor,
+    multi: true
+  },TokenStorage,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
